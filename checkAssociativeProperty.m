@@ -15,15 +15,10 @@ function checkAssociativeProperty (group_table_file)
     return
   endif
   
-  #booleanTest = (int16(5.0) == 5.0)
-  
   # Group table entries should all be positive integers smaller than group_size
   for i = 1:group_size
     for j = 1:group_size
-      #isInteger = isinteger(group_table(i,j))
-      #isFloat = isfloat(group_table(i,j))
-      #isPositive = gt(group_table(i,j),0)
-      if (!isinteger(group_table(i,j)) || !gt(group_table(i,j),0))
+      if ((int64(group_table(i,j)) != group_table(i,j)) || !gt(group_table(i,j),0))
         printf("Group table entries should be positive integers, not including 0\n")
         return
       endif
