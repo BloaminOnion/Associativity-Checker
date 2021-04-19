@@ -8,6 +8,11 @@ function checkAssociativeProperty (group_table_file)
   
   group_size = length (group_table(1,:))
   
+  if (group_size != length (group_table(:,1)))
+    printf("The group table is incomplete. Please review the entries and ensure they are all present and correct.\n")
+    return
+  endif
+  
   # TODO : Build in a test case here to ensure that the provided group table is 
   # a square matrix
   
