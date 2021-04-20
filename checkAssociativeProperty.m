@@ -4,9 +4,9 @@ function checkAssociativeProperty (group_table_file)
   # is associative, i.e. (a*b)*c = a*(b*c) for all a,b,c in the group.
   
   # group_table should be the name of a CSV file
-  group_table = csvread(group_table_file)
+  group_table = csvread(group_table_file);
   
-  group_size = length (group_table(1,:))
+  group_size = length (group_table(1,:));
   
   # Group table should be a square matrix of dimension n, where n is the
   # number of elements in the group
@@ -29,13 +29,13 @@ function checkAssociativeProperty (group_table_file)
     endfor
   endfor
   
-  isAssociative = true
+  isAssociative = true;
   
   for i = 1:group_size
     for j = 1:group_size
       for k = 1:group_size
         if group_table(group_table(i,j),k) != group_table(i,group_table(j,k))
-          isAssociative = false
+          isAssociative = false;
         endif
       endfor
     endfor
