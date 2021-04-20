@@ -12,7 +12,7 @@ function checkAssociativeProperty (group_table_file)
   # number of elements in the group
   if (group_size != length (group_table(:,1)))
     printf("The group table is incomplete. Please review the entries and \
-            ensure they are all present and correct.\n")
+ensure they are all present and correct.\n")
     return
   endif
   
@@ -22,12 +22,12 @@ function checkAssociativeProperty (group_table_file)
       if ((int64(group_table(i,j)) != group_table(i,j)) ...
           || !gt(group_table(i,j),0))
         printf("Group table entries should be positive integers, not including \
-                0\n")
+0\n")
         return
       endif
       if gt(group_table(i,j),group_size)
         printf("Group table entries should all be smaller than the number of \
-                elements in the group\n")
+elements in the group\n")
         return
       endif
     endfor
