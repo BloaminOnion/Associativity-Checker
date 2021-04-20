@@ -19,10 +19,12 @@ ensure they are all present and correct.\n")
   # Group table entries should all be positive integers smaller than group_size
   for i = 1:group_size
     for j = 1:group_size
-      if ((int64(group_table(i,j)) != group_table(i,j)) ...
-          || !gt(group_table(i,j),0))
-        printf("Group table entries should be positive integers, not including \
-0\n")
+      if ((int64(group_table(i,j)) != group_table(i,j)))
+        printf("Group table entries should be integers.\n")
+        return
+      endif
+      if (!gt(group_table(i,j),0))
+        printf("Group table entries should be positive, not including 0\n")
         return
       endif
       if gt(group_table(i,j),group_size)
